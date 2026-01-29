@@ -1,0 +1,6 @@
+name: ExpBottleBoost
+version: '${project.version}'
+main: com.example.expbottleboost.ExpBottleBoost
+api-version: '1.20'
+description: Customize experience bottle XP amounts
+author: Admin

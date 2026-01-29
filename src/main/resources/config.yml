@@ -1,0 +1,8 @@
+# ExpBottleBoost Configuration
+# Customize the XP gained from throwing experience bottles
+
+# Minimum XP per bottle (vanilla default: 3)
+min-exp: 50
+
+# Maximum XP per bottle (vanilla default: 11)
+max-exp: 100
