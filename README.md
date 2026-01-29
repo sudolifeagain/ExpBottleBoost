@@ -79,6 +79,10 @@ ExpBottleBoost/
 - **API**: Paper/Spigot API 1.20.1
 - **Compatibility**: Paper, Spigot, Bukkit (1.20.x)
 
+## AI Development
+
+This project includes AI-assisted development documentation built using the [Agent Skills](https://agentskills.io/home) open standard. Compatible with Claude Code, Cursor, and other AI coding assistants.
+
 ## License
 
 MIT License
