@@ -1,0 +1,68 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'maven'
+
+      - name: Build with Maven
+        run: mvn -B clean package --file pom.xml
+
+      - name: Get version from tag
+        id: version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: target/ExpBottleBoost-${{ steps.version.outputs.VERSION }}.jar
+          generate_release_notes: true
+
+      - name: Publish to Hangar
+        env:
+          HANGAR_API_TOKEN: ${{ secrets.HANGAR_API_TOKEN }}
+        run: |
+          VERSION=${{ steps.version.outputs.VERSION }}
+          JAR_PATH="target/ExpBottleBoost-${VERSION}.jar"
+          
+          # Upload file and get file info
+          FILE_RESPONSE=$(curl -s -X POST \
+            -H "Authorization: ${HANGAR_API_TOKEN}" \
+            -F "files=@${JAR_PATH}" \
+            "https://hangar.papermc.io/api/v1/projects/ExpBottleBoost/upload")
+          
+          # Create version
+          curl -s -X POST \
+            -H "Authorization: ${HANGAR_API_TOKEN}" \
+            -H "Content-Type: application/json" \
+            -d "{
+              \"version\": \"${VERSION}\",
+              \"channel\": \"Release\",
+              \"description\": \"Release ${VERSION}\",
+              \"platformDependencies\": {
+                \"PAPER\": [\"1.20\", \"1.20.1\", \"1.20.2\", \"1.20.3\", \"1.20.4\", \"1.20.5\", \"1.20.6\"]
+              },
+              \"pluginDependencies\": {},
+              \"files\": [{
+                \"platforms\": [\"PAPER\"],
+                \"fileInfo\": ${FILE_RESPONSE}
+              }]
+            }" \
+            "https://hangar.papermc.io/api/v1/projects/ExpBottleBoost/versions"
