@@ -52,13 +52,6 @@ mvn clean package
 
 The built JAR will be in `target/ExpBottleBoost-1.0.0.jar`
 
-## Deployment to OCI Server
-
-```bash
-# Upload to Paper server
-scp -i ~/.ssh/id_ed25519 target/ExpBottleBoost-1.0.0.jar ubuntu@161.33.28.14:/opt/minecraft/paper/plugins/
-```
-
 ## Project Structure
 
 ```
