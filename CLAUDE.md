@@ -37,5 +37,18 @@ src/main/
 - Config file: `plugins/ExpBottleBoost/config.yml`
 - **Fixed XP**: Set `min-exp` = `max-exp` for constant value
 
+## Release Workflow
+
+Tag push triggers auto-release:
+```bash
+git tag v1.x.x
+git push origin v1.x.x
+```
+→ Builds JAR → GitHub Release → Hangar publish
+
+## Distribution
+- **GitHub**: https://github.com/sudolifeagain/ExpBottleBoost
+- **Hangar**: https://hangar.papermc.io/re4lity/ExpBottleBoost
+
 ## Author
 re4lity (MIT License)
