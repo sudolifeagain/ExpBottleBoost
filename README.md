@@ -1,5 +1,7 @@
 # ExpBottleBoost
 
+[![Hangar](https://img.shields.io/hangar/dt/ExpBottleBoost?label=Hangar%20Downloads)](https://hangar.papermc.io/re4lity/ExpBottleBoost)
+
 A simple Paper/Spigot plugin that allows server administrators to customize the amount of experience (XP) gained from throwing Experience Bottles (Bottles o' Enchanting).
 
 ## Features
