@@ -43,3 +43,7 @@ Runtime: `plugins/ExpBottleBoost/config.yml`
 ## Reload Config
 
 Call `reloadConfig()` to refresh values from disk.
+
+## Tips
+
+**Fixed XP**: Set `min-exp` and `max-exp` to the same value for constant XP per bottle.

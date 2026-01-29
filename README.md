@@ -26,6 +26,10 @@ min-exp: 50
 
 # Maximum XP per bottle (vanilla default: 11)
 max-exp: 100
+
+# For fixed XP (e.g., always 100), set both to same value:
+# min-exp: 100
+# max-exp: 100
 ```
 
 ## Building
@@ -78,3 +82,11 @@ ExpBottleBoost/
 ## License
 
 MIT License
+
+## Changelog
+
+### v1.0.1
+- Document fixed XP configuration (set min-exp = max-exp)
+
+### v1.0.0
+- Initial release
