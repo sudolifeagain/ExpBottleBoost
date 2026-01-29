@@ -2,6 +2,8 @@
 
 Paper/Spigot Minecraft plugin that customizes experience bottle XP amounts.
 
+**Version**: 1.0.1
+
 ## Tech Stack
 - Java 17
 - Maven
@@ -11,7 +13,7 @@ Paper/Spigot Minecraft plugin that customizes experience bottle XP amounts.
 ```bash
 mvnw.cmd clean package
 ```
-Output: `target/ExpBottleBoost-1.0.0.jar`
+Output: `target/ExpBottleBoost-1.0.1.jar`
 
 ## Project Structure
 ```
@@ -33,6 +35,7 @@ src/main/
 - Call `saveDefaultConfig()` in `onEnable()` to create default config
 - Use `getConfig().getInt("key", defaultValue)` to read values
 - Config file: `plugins/ExpBottleBoost/config.yml`
+- **Fixed XP**: Set `min-exp` = `max-exp` for constant value
 
 ## Author
 re4lity (MIT License)
