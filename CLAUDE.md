@@ -11,7 +11,11 @@ Paper/Spigot Minecraft plugin that customizes experience bottle XP amounts.
 
 ## Build
 ```bash
+# Windows
 mvnw.cmd clean package
+
+# Linux/Mac
+./mvnw clean package
 ```
 Output: `target/ExpBottleBoost-1.0.1.jar`
 
